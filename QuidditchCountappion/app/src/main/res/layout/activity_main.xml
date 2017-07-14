@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾-->
+<!-- Darijo Barucic                                                                              -->
+<!-- fablwesn@gmail.com                                                                          -->
+<!-- Vienna, Austria                                                                             -->
+<!--_____________________________________________________________________________________________-->
+<!--                                                                                             -->
+<!--   I've learned a lot while working on this project. It was a lot of fun and I really like   -->
+<!--   the result. To be honest, this is my second try. The first one failed because of too      -->
+<!--   much nesting, the performance wasn't that good :'D                                        -->
+<!--   I hope I didn't go overboard with this one! :)                                            -->
+<!--                                                                                             -->
+<!--   Thanks for reviewing!                                                                     -->
+<!--                                                                                             -->
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<!--                                                                                             -->
+<!-- starting with a vertical LinearLayout, holding the background image and separating
+the screen into the "Teams" and the bottom button-panel -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_portrait"
+    android:orientation="vertical"
+    tools:context="com.fablwesn.seventoes.quidditchcountappion.MainActivity">
+
+    <!-- separating the screen in two columns, each representing a team -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="6"
+        android:orientation="horizontal">
+
+        <!-- beginning with Team A on the left, 4 rows containing the team info -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <!-- I wanted the possibility to change teams, cause i thought it fits well to have
+                 all 4 houses of hogwarts. I tried out the ImageSwitcher and succeeded :)
+                 There's more on this in the MainActivity.java -->
+            <!-- TL;DR: displays the logo of the chosen team     -->
+            <ImageSwitcher
+                android:id="@+id/team_a"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_weight="4">
+
+            </ImageSwitcher>
+
+            <!-- the button to zap between teams for Team A -->
+            <Button
+                android:id="@+id/next_team_a"
+                android:layout_width="78dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center|top"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:gravity="center"
+                android:text="@string/next_team"
+                android:textAppearance="@style/CustomStyle"
+                android:textSize="14sp" />
+
+            <!-- displays the current score for Team A -->
+            <TextView
+                android:id="@+id/team_a_score_txt"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_gravity="center"
+                android:layout_margin="8dp"
+                android:layout_weight="5"
+                android:gravity="center"
+                android:textAppearance="@style/CustomStyle"
+                android:textSize="80sp"
+                android:textStyle="bold" />
+
+            <!-- when pressed, adds 10 points to Team A -->
+            <Button
+                android:layout_width="126dp"
+                android:layout_height="50dp"
+                android:layout_gravity="start"
+                android:layout_margin="2dp"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:gravity="center"
+                android:onClick="GoalTeamA"
+                android:text="@string/goal"
+                android:textAppearance="@style/CustomStyle"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <!-- Team B on the right is no different from the previous layout -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <!-- display the Team B logo -->
+            <ImageSwitcher
+                android:id="@+id/team_b"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_weight="4">
+
+            </ImageSwitcher>
+
+            <!-- switch between teams for Team B -->
+            <Button
+                android:id="@+id/next_team_b"
+                android:layout_width="78dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center|top"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:gravity="center"
+                android:text="@string/next_team"
+                android:textAppearance="@style/CustomStyle"
+                android:textSize="14sp" />
+
+            <!-- displays the current score for Team B -->
+            <TextView
+                android:id="@+id/team_b_score_txt"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_gravity="center"
+                android:layout_margin="8dp"
+                android:layout_weight="5"
+                android:gravity="center"
+                android:textAppearance="@style/CustomStyle"
+                android:textSize="80sp"
+                android:textStyle="bold" />
+
+            <!-- adds 10 points to Team B's score after pressed -->
+            <Button
+                android:layout_width="126dp"
+                android:layout_height="50dp"
+                android:layout_gravity="end"
+                android:layout_margin="2dp"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:gravity="center"
+                android:onClick="GoalTeamB"
+                android:text="@string/goal"
+                android:textAppearance="@style/CustomStyle"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- and a final row for the last 3 buttons, horizontal -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <!-- press this button, after Team A caught the snitch, adding 150 points to their score.
+             Phew. I hope they won -->
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="start|top"
+            android:layout_marginBottom="2dp"
+            android:layout_marginStart="2dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:gravity="center"
+            android:onClick="SnitchTeamA"
+            android:text="@string/snitch"
+            android:textAppearance="@style/CustomStyle"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <!-- simple reset button, setting both TextViews for the score to show 0 -->
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center|bottom"
+            android:layout_marginEnd="2dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="2dp"
+            android:layout_weight="0.4"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:gravity="center"
+            android:onClick="ResetScore"
+            android:text="@string/reset"
+            android:textAppearance="@style/CustomStyle"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <!-- press this button, after Team B caught the snitch, adding 150 points to their score -->
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="end|top"
+            android:layout_marginBottom="2dp"
+            android:layout_marginEnd="2dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:gravity="center"
+            android:onClick="SnitchTeamB"
+            android:text="@string/snitch"
+            android:textAppearance="@style/CustomStyle"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</LinearLayout>

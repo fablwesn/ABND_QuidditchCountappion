@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Quidditch Countappion</string>
+
+    <!-- text displayed on the buttons to change teams -->
+    <string name="next_team">switch</string>
+
+    <!-- displayed on the goal buttons (+10 points) -->
+    <string name="goal">goal</string>
+    <!-- visible on the snitch buttons (+150 points) -->
+    <string name="snitch">snitch caught</string>
+    <!-- text on the button to reset all scores to 0 -->
+    <string name="reset">reset</string>
+</resources>
